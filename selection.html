@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+
+<title>TP du 01 04</title>
+
+<script src="selection.js"></script>
+<style >
+
+	section{
+		min-height:200px;
+		background:linear-gradient(to bottom, #574AE2, #333174);
+		display: flex;
+		flex-directon:  row;
+        align-items:center;
+		justify-content: space-between;
+	}
+
+	
+	#redline{
+		width:  100%;
+		height: 10px;
+		background-color: red;
+		z-index: 999;
+		position: absolute;
+		margin:0 auto;
+	}
+
+	.sameClassDiv{
+		background: rgba(255, 255, 255, 0.1);
+	    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	    border: 1px solid rgba(255, 255, 255, 0.25);
+	    border-right: 1px solid rgba(255, 255, 255, 0.1);
+	    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	    backdrop-filter: blur(5px);
+	    border-radius: 10px;
+	    z-index: 1;
+	    overflow: hidden;
+	    color:#fff;
+
+		width: 150px;
+		height: 50px;
+		text-align: center;
+		z-index: 1000;
+
+
+	}
+	.paragrapheDemo{
+
+		font-size: 18pt;
+		color: violet;
+	}
+	table{
+		width: 100%;
+
+	}
+	table tr td {
+
+
+	}
+
+
+</style>
+</head>
+<body>
+	<h1 align="center">01/04/2022 TP SELECTIONS</h1>
+	<h2>EXERCICE 5: </h2>
+
+	<ul>
+		<li>1- Créer un fichier selection.html</li>
+		<li>2-Insérer un input de type text et un de type button.</li><li>3- Ajouter une div identifiée madiv.</li>
+		<li>4- Créer la fonctionnalité permettant d’afficher dans la div la saisie dans le input.</li>
+	</ul>
+
+
+
+	
+	<input type="text" name="textInput" id="myInput">
+	<input type="button" name="myBtn" id="myBtn" value="Submit">
+
+
+	<div id="madiv">
+
+
+	<h2>EXERCICE 6: </h2>
+
+	<ul>
+		<li>Créer une fonction pour réaliser une soustraction.</li>
+		
+	</ul>
+	A: 
+	<input type="text" name="intInpup" id="intA">
+	B:
+	<input type="text" name="intInpup" id="intB">
+	<input type="button" name="myBtn" id="equalsBtn" value="=">
+	<span id="ResultSpan"></span>
+	</div>
+	<br>
+	<h2>EXERCICE 7: </h2>
+
+
+		
+	<section>
+		<div id="redline">&nbsp;</div>
+	<div name="demoDiv" class="sameClassDiv">texte1</div>
+	<div name="demoDiv" class="sameClassDiv">texte2</div>
+	<div name="demoDiv" class="sameClassDiv">texte3</div>
+
+	</section>
+	<p class="paragrapheDemo">Paragraphe1</p>
+	<p class="paragrapheDemo">Paragraphe2</p>
+	<input type="button" name="nameStyleBtn" id="styleBtn" value="changeBG">
+	<input type="button" name="nameStyleBtn" id="paragrapheBtn" value="Change Text style">
+
+
+	<button id="btnQr">Qselector</button>
+
+	<li>QSelector</li>
+	<li>QSelector</li>
+	<li class="classeLi">QSelector</li>
+
+	<br>
+	<h2>EXERCICE 7.2: API querySelector</h2>
+
+<br>1- Créer un tableau HTML de 5 x 3
+<br>2- Créer un bouton qui colorise les cellules impaires du tableau (CSS adéquat) 
+<br>3-Ajouter une image, puis un bouton qui affiche et cache l’image au clic.
+<button id="tbColor">ColorizeMyTable</button>
+
+	<table border="solid black">
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<br>
+	<button id="hideImg">Hide/show Immage</button>
+<div>
+	<img src="../htmlstage/imgs/logo.jpg">
+</div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

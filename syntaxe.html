@@ -1,0 +1,299 @@
+
+<meta charset="UTF-8">
+
+<script>
+	/*
+//creer une constante
+const poids=59;
+
+try{
+	poids=105;
+}
+catch(err){
+	console.log(err);
+}
+console.log(poids);
+
+
+// variables: mot cle var
+
+nom="GAMBA"
+console.log(nom);
+
+
+var a;
+var a,b,c,d,somme;
+var _variablePrivee;
+a=5; b=8;
+
+//int a// pas de typege a donner
+
+var iCpt = 1;
+var Sprenom = "Leopold";
+var dFlottant = 13.45
+
+somme = a+b;
+document.write("la somme est de :"+somme+" <br>");
+alert(somme);
+console.log(somme);
+
+
+*/
+
+/*
+// types
+
+var ch="Chaine"
+var a;
+var a,b,c,d,fsomme, g;
+g=true;
+a=5; b=8;
+f=null;
+
+console.log(typeof ch);
+console.log(typeof a);
+console.log(typeof d);
+console.log(typeof f);
+console.log(typeof g);
+
+
+// utuliser new
+var nom = new String("Macron");
+var nb = new Number(3);
+console.log(typeof nom);
+console.log(typeof nb);
+
+
+// echapepent -- ne pas tenir compte de  il faut utiliser l'antislash
+
+var chaine= "il lui dit: \"venez voir\""
+console.log(chaine);
+
+// coversion de type
+
+
+x= " La reponse est " +42; 
+console.log(x);
+console.log(typeof x);
+
+
+y=42+" est la repons"; 
+console.log(y);
+console.log(typeof y);
+
+x="37"-7;
+console.log(x);
+console.log(typeof x);
+
+y="37"+7; // toujours string
+console.log(y);
+console.log(typeof y);
+
+
+
+
+// types pour tableaux
+
+console.log(typeof [1,2,3,4]); // un objet
+console.log(typeof{name:'John', age:34}); // un objet
+
+console.log(typeof function(){}) // function */
+
+
+var tab1=[8,8,5,2,3,6, false, 125.4];
+document.write("<br><br> Element1: "+tab1[0]+"<br>");
+document.write("<br><br> Element2: "+tab1[2]+"<br>");
+
+tvecteur = new Array(2);
+tvecteur[0]="toto";
+tvecteur[1]="momo";
+tvecteur[2]=40;
+tvecteur[3]=80;
+console.log(tvecteur);
+
+
+var tabvide =[]; tabvide[0]= "Jean";tabvide[1]= 42;
+console.log(tabvide);
+
+
+
+//virer un element
+delete tabvide[1];
+
+console.log(tabvide);
+delete tabvide[1]; 
+tabvide[1]= 155;
+console.log(tabvide);
+
+console.log(typeof tabvide)
+// vider le tableau = 
+tabvide = null;
+console.log(tabvide);
+
+
+
+// tableau associatif : klef:valeur
+
+var aAssoc = {
+	"59":"Lille",
+	"75":"Paris",
+	"44":"Nantes"
+	
+};
+console.log("Type: "+typeof aAssoc+ " Premier: "+aAssoc["59"]);
+
+
+// length = taille du tableau
+
+
+var taille = tvecteur.length;
+/*
+console.log("Taille du tableau: "+taille);
+// Tableau de tableaux
+
+// Alert
+// alert(taille);
+
+//prompt;
+var nombre = parseInt(prompt("Veuillez saisir le entier", 0)); // parseInt car promt renvoie un srting
+document.write("saisie "+nombre+"  type : "+typeof nombre)
+
+//parseInt ou parseFloat
+
+// confirme;
+
+var msg = "voulez-vous devenir riche?";
+if(confirm(msg)){
+	document.write("<br>Merci de travailler plus");
+	location.replace("https://google.com");
+}
+*/
+// operateurs arithmetiques
+x=3;
+y=++x;// x=4, y = 4
+
+x=3;
+y=x++;// y = 3, x=4
+
+
+// alternative : if et variantes, switch
+
+var nbre = 1;
+if (nbre == 1){
+	document.write("Un joli 'if'");
+
+};
+
+// if standart avec un else
+if (nbre == 5){
+	document.write("Un joli 'if'");
+
+}else
+{
+document.write("<br>Un joli 'else'");
+};
+// if + else if avec un else
+//...
+
+// if avec imbrication внутреннее условие
+
+
+// structure switch
+
+
+var role = "other";
+var adminUrl  = "http://google.fr";
+var memberUrl="http://youtube.fr";
+
+
+switch(role){
+
+	case 'member': location.href=memberUrl; break;
+	case 'admin': location.href=adminUrl; break;
+	default: document.write("RAS<br>");; break;
+}
+
+// les boucles
+
+
+n = 1;
+while(n<=5){
+	
+	document.write(n+"<br>");
+	n++;
+}
+
+
+n = 1;
+
+// faire tant que
+do{
+	
+	document.write(n+"<br>");
+	n++;
+}while(n<=5);
+//
+
+//FOR
+
+itab = [10,50,30,90]
+for(var i=0;i<itab.length;i++){
+	document.write(itab[i]+"<br>");
+}
+
+document.write("indice actuel est "+i); //donc en java le i n'est valable que dans la boucle, contrairement a javascript ; ici il faut reitiialiser le i à chaque reutilisation 
+
+// FOR IN
+document.write("<br><br>For avec les clefs<br><br>");
+for (var cle in aAssoc){
+document.write(cle+" "+aAssoc[cle]+"<br>");
+
+}
+
+//FOR OF
+document.write("<br><br>For avec les valeurs<br><br>");
+itab=[10,50,80]
+for (valeur of itab){
+document.write(valeur+"<br>");
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

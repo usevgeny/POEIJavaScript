@@ -1,0 +1,123 @@
+
+<meta charset="UTF-8">
+
+<script>
+//EXERCICE 7.1:
+
+document.write("<h2>EXERCICE 7.1: </h2><p>AAfficher la date et des liens hypertextes au moyen de la méthode write de l'objet document.</p>");
+
+today = new Date()
+document.write(today+"<br>");
+document.write("<a href=\"#\">Lien1</a><br>");
+document.write("<a href=\"#\">Lien2</a><br>");
+document.write("<a href=\"#\">Lien3</a><br>");
+
+//EXERCICE 7.2:
+document.write("<h2>EXERCICE 7.2: </h2><br><p>Affichez dans une boîte de dialogue le résultat de l'addition de deux nombres saisis dans deux autres boîtes de dialogue.</p>");
+/*
+var nb1 = parseInt(prompt("Veuillez saisir un premier entier ", 0));
+var nb2 = parseInt(prompt("Veuillez saisir un premier entier ", 0));
+document.write("<h4>Solution: </h4>");
+document.write(nb1+"<br>");
+document.write(nb2+"<br>");
+*/
+
+//EXERCICE 8.1:
+
+document.write("<h2>EXERCICE 8.1: </h2><p>Calculez la somme des N premiers entiers positifs. Cette somme est donnée par la formule mathématique suivante :</p>");
+
+var n = 5;
+var s = (n*(n+1))/2;
+document.write("<h4>Solution: </h4>");
+document.write(s+"<br>");
+
+
+//EXERCICE 8.2:
+
+document.write("<h2>EXERCICE 8.2: </h2><p>Lire le rayon R d'une sphère. Calculer et afficher son aire et son volume</p> R=5, Pi -- const=3.14");
+
+var R = 5;
+const pi = 3.14;
+var aire = 4*pi*(R**2);
+var volume = (3/4)*pi*(R**3);
+document.write("<h4>Solution: </h4>");
+document.write("Aire="+aire+"<br>");
+document.write("Volume="+volume+"<br>");
+
+//...
+
+//EXERCICE 13.1:
+
+document.write("<h2>EXERCICE 13.1: </h2><p>Écrire un programme qui demande de saisir 2 valeurs et qui affiche la plus petite des 2 valeurs. </p>");
+document.write("<p>Decomenter pour voir la solution.</p>");
+
+/*
+var nb1 = parseInt(prompt("Veuillez saisir un premier entier ", 0));
+var nb2 = parseInt(prompt("Veuillez saisir un premier entier ", 0));
+
+document.write("<h4>Solution: </h4>");
+document.write("Les nombres saisis: "+nb1+" et "+nb2+"<br>");
+document.write(nb2+"<br>");
+document.write("Le nombre le plus petit de la sasi est: "+(nb1<nb2?nb1:nb2)+"<br>");
+*/
+//EXERCICE 13.1:
+
+document.write("<h2>EXERCICE 13.2: </h2><p>Écrire un script qui demande de saisir 2 tableaux et qui affiche le plus grande des 2 tableaux . </p>");
+
+var tb1=new Array(0);
+var tb2=new Array(0);
+var iCptr=0;
+while (true){
+	// on remplie le tab 1
+	while(true){	
+		msgTab="On continue la saisi pour le tableau 1?"
+		tb1[iCptr]=parseInt(prompt("Veuillez saisir le entier pour le tableau 1", 0));
+		iCptr++;
+		if(!confirm(msgTab)){
+			break};
+		};
+
+		// on remplie le tab 2
+
+	iCptr=0;
+
+		while(true){	
+		
+		msgTab="On continue la saisi pour le tableau 2?"
+		tb2[iCptr]=parseInt(prompt("Veuillez saisir le entier pour le tableau 2", 0));
+		iCptr++;
+		if(!confirm(msgTab)){
+			break};
+		};
+
+	// on decide si on termine le programme;
+
+	var msg="Afficher les resultats?"
+	if(confirm(msg)){
+	document.write("<br>voici les Arrays: "+"<br>Table1: "+tb1+"<br>"+"Table2: "+tb2 +"<br>");
+	document.write("<br>Le tableau le plus grand des 2: "+((tb1.length>tb2.length)?"TB1 : "+tb1:"TB2 : "+tb2));
+	break;};
+
+
+
+};
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

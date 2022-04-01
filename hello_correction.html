@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec JS</title>
+
+    <!-- Script incorporé -->
+    <script>
+        // Mon code JS
+        window.document.write("Hello, le monde entier <br>");
+        document.write("Cool le <strong>Javascript</strong><br>");
+
+        // Créer une fonction
+        function direCoucou(){
+            // Créer une variable
+            var msg = "Bonjour le monde";
+
+            // Afficher une boîte alert()
+            alert(msg);
+        }
+
+        // Afficher texte dans la console
+        console.log("Bienvenue chez M2I");
+
+        // Afficher variable
+        var nom  = "MARIE";
+        console.log(nom);
+        console.log("je suis : " + nom); // Concaténer avec le +
+
+        //console.log(mavar); 
+        console.info("Bye bye"); 
+
+        // Découvrir les propriétés des objets avec la console : dir()
+        var tab = new Array(5, 8, 9);
+        console.dir(tab);
+    </script>
+</head>
+<body>
+    <br><br>
+    <a href="#" onclick="direCoucou()">Dites Coucou</a>
+
+    <br><br>
+    <a href="#" onmouseover="direCoucou()">Dites encore Coucou</a>
+
+    <br><br> <!-- Avec pseudo protocole Javascript-->
+    <a href="javascript:direCoucou()">Dites finalement Coucou</a>
+</body>
+</html>

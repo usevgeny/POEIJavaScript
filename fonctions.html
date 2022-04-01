@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+        <meta name="X-UA-Compatible" content="IE=edge">
+
+	<title>PAGE AVEC JS</title>
+
+<script src="biblio.js"></script>
+<script>
+
+// is nAN;
+
+var text = "texte texte";
+if(isNaN(text)){
+	document.write("Ok.on a du texe<br>");
+}
+
+
+
+var n = parseInt("texte texte5");
+if(isNaN(text)){
+	document.write(n+" "+ typeof n + "<br>");
+}
+
+
+// invoquer la fonction
+
+var q = 10;
+
+var p = 1.20;
+var t = getPrix(q,p);
+document.write("<br>Voici le ttc: "+t+"euros");
+
+var a = 2;
+b=4;
+document.write("<br>add: "+add()+"<br>");
+b=4;
+document.write("variable 'e' declaré sans var dans la fonction: "+e+"<br>");
+
+maFonction();
+maFonction(1,2);
+var res = somme(2,5, "un", "deux");
+console.log(res);
+
+/// retoru de plusieurs valeurs
+
+
+var tab = plusieursOperations(6,9);
+document.write("<br> severalReturns:"+tab[0]+" "+tab[1]);
+</script>
+
+
+</head>
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

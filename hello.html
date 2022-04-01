@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+        <meta name="X-UA-Compatible" content="IE=edge">
+
+	<title>PAGE AVEC JS</title>
+	<script>
+		// mon code js
+		window.document.write("Hello tout le monde<br>");
+		document.write("Cool le <strong>Javascript</strong><br>");
+		// creer une fonction 
+
+		function direCoucou(){
+
+			// creer une variable
+			var msg="Bonjour le monde";
+
+			// afficher une boite d'alert()
+
+			alert(msg);
+
+		}
+
+	// afficher texte dasn la consile
+
+	console.log("Binevenue chez M2i");
+
+	// afficher variable
+
+	console.info("Bye Bye")
+
+	var nom="MARIE";
+	console.log(nom);
+	console.log("Je suis "+nom);
+	
+	// decouvrir les proprietes des objets: dir()
+	var tab = new Array(5, 8, 9, 15);
+	console.dir(tab);
+	console.dir(nom);
+
+
+
+
+	</script>
+</head>
+<body class="fond">
+	<br><br>
+	<a href="#" onclick="direCoucou()"> dites couCou</a>
+	<br><br>
+	<a href="#" onmouseover="direCoucou()"> dites encore couCou</a>
+	<br><br>
+	<a href="javascript:direCoucou()"> dites finalement couCou</a>
+
+</body>
+</html>

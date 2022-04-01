@@ -1,0 +1,206 @@
+<meta charset="utf-8">
+
+<script>
+    // Créer une constante
+    const poids = 59;
+
+    try{
+        poids = 105;
+    }
+    catch(err){
+        console.log(err); // TypeError
+    }
+    console.log(poids);
+
+    
+    // variables : mot clé var
+    nom = "GAMBA";
+    console.log(nom);
+
+    var a;
+    var b, c, d, e, somme;
+    var _variablePrivee;
+    a = 5; b = 8;
+
+    // Création et valorisation
+    var iCpt = 1;
+    var sPrenom = "Leopold";
+    var dFlottant = 13.45;
+
+    // Affichage
+    somme = a + b;
+    document.write("La somme est de : " + somme + "<br>");
+    alert(somme);
+    console.log(somme);
+
+    // Types de données
+    var ch = "Chaine";
+    console.log(typeof ch);
+
+    var a;
+    var b, c, d, e, somme;
+    var _variablePrivee;
+    a = 5; b = 8;f = null; g = true;
+    console.log(typeof g);
+
+    // Utiliser new
+    var nom = new String("MACRON");
+    var nb = new Number(30);
+    console.log(typeof nb);
+
+    // Echappement = ne pas tenir compte de  = utiliser \
+    var chaine = "Il lui dit : \"venez voir\", puis s'en alla";
+    console.log(chaine);
+
+    // Conversion de type
+    x = "La réponse est " + 42;
+    y = 42 + " est laa réponse";
+    console.log(typeof x); // string
+    console.log(typeof y); // string
+
+    x = "37" - 7; // conversion de "37" en nombre
+    y = "37" + 7;
+    console.log(typeof x); // number
+    console.log(typeof y); // string
+
+    // Types pour tableaux
+    console.log(typeof [1, 2, 3, 4]);// objet
+    console.log(typeof {name:'John', age:34}); // objet
+    console.log(typeof function(){}); // function
+
+    // Créer / afficher des tableaux
+    var tab1 = [5, 8, 9, false, 125.4];
+    document.write("<br>Elément 1 : " + tab1[0] + "<br>");
+    document.write("<br>Elément 2 : " + tab1[1] + "<br>");
+
+    tvecteur = new Array(2);
+    tvecteur[0] = "toto";
+    tvecteur[1] = "momo";
+    tvecteur[2] = 40;
+    tvecteur[3] = 80;
+    console.log(tvecteur);
+
+    var tvecteur1 = new Array(5, 8, 9, false, 125.4);
+    console.log(tvecteur1);
+
+    // Tableau vide
+    var tabVide = [];tabVide[0] = "Jean"; tabVide[1] = 40;tabVide[2] = "Pierre";
+    console.log(tabVide);
+
+    // Virer un élément
+    delete tabVide[1];
+    console.log(tabVide);
+    tabVide[1] = 155;
+    console.log(tabVide);
+    console.log("type: " + typeof tabVide);
+
+    // Vider le tableau
+    tabVide = null;
+    console.log(tabVide);
+
+    // Créer un tableau "associatif" (type object)
+    var oAssoc = {
+        "59":"Lille",
+        "75":"Paris",
+        "44":"Nantes"
+    }
+    console.log("Type: " + typeof oAssoc + " Premier: " + oAssoc["59"]);
+    
+    // length = taille du tableau
+    var taille = tvecteur.length;
+    console.log("Taille tableau: " + taille);
+
+    /********************************************************************/
+
+    // ALERT
+    alert(taille);
+
+    // PROMPT
+    var nombre = parseInt(prompt("Saisir un entier :", 0));
+    document.write("Saisie: " + nombre + " Type:" + typeof nombre);
+
+    // CONFIRM
+    var msg = "Voulez-vous devenir riche ?";
+    if(confirm(msg)){
+        // document.write("<br>Merci de travailler plus");
+        location.replace("https://google.com");
+    }
+
+    // Opérateur arithmétiques
+    x = 3;
+    y = ++x; // x = 4, y = 4
+
+    x = 3;
+    y = x++; // x = 4, y = 3
+    
+    // Alternative : if et variantes, switch
+    // If à une instruction
+    var nbre = 1;
+    if (nbre == 1) document.write("Un joli IF");
+
+    // If standard
+    if(nbre == 1){
+        nbre += 1;
+        document.write("<br>Un IF classique " + nbre);
+    }
+   
+    // If avec else
+    nbre = 5;
+    if(nbre == 1){
+        nbre += 1;
+        document.write("<br>Un IF classique " + nbre);
+    }
+    else{
+        document.write("<br>le nombre vaut " + nbre);
+    }
+
+    // SWITCH
+    var role = "membre";
+    var adminUrl = "http://google.fr";
+    var membreUrl = "http://fnac.fr";
+
+    switch(role){
+        case 'membre': location.href = membreUrl; break;
+        case 'admin': location.href = adminUrl; break;
+        default: document.write("<br>Rien à signaler");break;    
+    }
+
+    // **********************************************************************//
+    // TANT QUE
+    n = 1;
+    while(n <= 5){
+        document.write(n + "<br>");
+        n++;
+    }
+
+    // FAIRE..TANT QUE
+    n = 1;
+    do{
+        document.write(n + "<br>");
+        n++;
+    }while(n <= 5);
+
+    // FOR
+    document.write("<br>Boucle FOR" + "<br>");
+    itab1 = [10, 50, 90] ;
+    for(var i=0; i < itab1.length; i++){
+        document.write(itab1[i] + "<br>");
+    }
+    
+    // FOR..IN : avec la clé
+    var oAssoc = {
+        "59":"Lille",
+        "75":"Paris",
+        "44":"Nantes"
+    }
+
+    for(var cle in oAssoc){
+        document.write(cle + " : " + oAssoc[cle] + "<br>");
+    }
+
+     // FOR..OF : avec la cvaleur
+    itab1 = [10, 50, 90] ;
+    for(valeur of  itab1){
+        document.write(valeur + "<br>");
+    }
+</script>

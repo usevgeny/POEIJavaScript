@@ -1,0 +1,60 @@
+<script type="text/javascript">
+	//Try Catch
+/*
+	try{
+		console.log(mavariable);
+	}
+	catch(e){
+		console.error("Une erreur s'est produite");
+		console.log(e)
+	}
+
+	//Try finally
+
+	try{
+		console.log(mavariable);
+	}
+	finally{
+		
+		console.info("apres le bloc try")
+		mavariable=41;
+		console.log(mavariable);
+	}
+*/
+
+	//Try catch finally
+
+	try{
+		console.log(mavariable);
+	}
+	catch(e){
+			console.error("Une erreur s'est produite");
+			console.log(e)
+		}
+
+	finally{
+		
+		console.info("apres le bloc try")
+		mavariable=41;
+		console.log(mavariable);
+	}
+
+
+// instancier un objet  d'erreur avec le mot clef throow
+
+function diviser(a,b){
+	if (b==0){throw "Erreur: division par 0 impossible."}
+	return a/b
+}
+
+try{
+	var divisionResult = diviser(8,0)
+	console.log(divisionResult)
+}
+catch(e){
+
+	console.log(e)
+}
+
+
+</script>

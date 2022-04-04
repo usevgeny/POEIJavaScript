@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    
+    .centrage{
+        margin:100px auto;
+    }
+
+    .content{
+
+        width:70%;
+        background-color:gainsboro;
+    }
+
+    .demoDiv{
+    
+    display: flex;
+    flex-direction: column;
+    background-color:gainsboro;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    z-index: 1;
+    overflow: hidden;
+    color:black;
+
+    width: 750px;
+    height: 500px;
+    text-align: center;
+    z-index: 1000;
+
+    }
+
+    table.demoTab{
+        width:80%;
+        margin:0 auto;
+    }
+
+    table.demoTab, table.demoTab tr, table.demoTab th, table.demoTab td{
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+    
+    table.demoTab tr:nth-child(odd){
+        background-color:gray;
+        color:white;
+    }
+
+
+        
+    </style>
+</head>
+<body>
+    
+    <!--CREATION DE LA FORME-->
+
+
+	<div class="centrage content demoDiv">	
+		<div>
+            <form name="utilisateurs" id="AddUser" >
+                
+                <table>
+                    <tr>
+                        
+                        <td>
+                            Nom:
+                        </td>
+
+                        <td>
+                            <input type="text" name="nom" id="userName">
+                        </td>
+                    </tr>		
+                    <tr>
+                        
+                        <td>
+                            Anniversaire:
+                        </td>
+
+                        <td>
+                            <input type="date" name="anniversaire" id = "anniversaire">
+                        </td>
+                    </tr>	
+                    <tr>
+                        <td>
+                            <input type="button" name="addUserBtn" value="Ajouter" id="addUserBtn" >
+                        </td>
+                    </tr>	
+                    </table>
+
+            </form>
+        </div>
+    <!--CREATION DU TABLEAU DYNAMIQUE-->
+        <div>
+            <br>
+            <h2>Entrez les values pour remplir le tableau</h2>
+        <table id="tabAremplir" class="demoTab">
+            <tr>
+                <th>
+                    Name:
+                </th>
+                <th>
+                    Date:
+                </th>
+            </tr>
+        </table>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        // 1. definir les variables et attraper les éléménts du document (bouton, tableau)
+        var userName;
+        var annivDate;
+        var addUserBtn = document.querySelector("#addUserBtn");
+        var tabARemplir = document.querySelector("#tabAremplir");
+
+
+        // 2. rattacher une action au bouton
+        // 3. recuperer les donnees du formulare
+        addUserBtn.addEventListener("click", function(){
+            userName = document.querySelector("#userName").value;
+            annivDate = document.querySelector("#anniversaire").value;
+            //et là on va inserrer une ligne avec les données récupéréss soit directement en appelant une fonction
+            //addLine(name=userName,userAnniv=annivDate,tableau=tabARemplir);
+
+            // si on veut utiliser l'objet newUser (décrit en bas du script) et une de ses méthodes:
+            UserEntity = new newUser(uName=userName, annivDate=annivDate);
+            UserEntity.addMoiAuTableau();
+        });
+
+
+        // 4. inserer un ligne avec les donnees dans le tableau
+            // 4.1 on va d'abord décrir la logique d'insertion des lignes
+            function addLine(name,userAnniv,tableau){
+                this.name = name;
+                this.userAnniv = userAnniv;
+                this.tableau = tableau;
+
+                // Ici on crée une ligne pour le name
+                var rowUser = document.createElement("tr");
+                
+                    //et là c'est parti pour les cellules:
+                    var cellName = document.createElement("td");
+                    var cellNameText = document.createTextNode(this.name);
+                    // d'abord je mets du texte dans la cellule
+                    cellName.appendChild(cellNameText);
+                    // ensuite je mets la cellule dans le row
+                    rowUser.appendChild(cellName);
+
+                    // Ici on crée un cellule pour la userAnniv
+                    var cellUserAnniv  = document.createElement("td");
+                    var cellUserAnnivText = document.createTextNode(this.userAnniv);
+                    // d'abord je mets du texte dans la cellule
+                    cellUserAnniv.appendChild(cellUserAnnivText);
+                
+                // c'est bon avec les cellules, on va les mettre dans le row:
+                rowUser.appendChild(cellUserAnniv);
+
+                // et maintenant la ligne contient la cellule avec le nom et avec la date,
+                // on peut la mettre dans le tableau
+                // donc on procède de plus petit vers le plus grand (de la cellule, vers le row, et enfin vers le tableau)
+
+                tableau.appendChild(rowUser);
+                
+                // la logique est complète on peut integrer cette fonction dans l'action de la button
+            }
+        
+        // aussi si on veut va creer un objet User pour ensuite appeler un de ses methodes;
+        // notamment une methode addMoiAuTableau pour l'ajouter au tableau;
+        //var UserEntity;
+        function newUser (uName, annivDate){
+            this.uName = uName;
+            this.annivDate = annivDate;
+           /* this.addMoiAuTableau =function(){
+                return addLine(name=userName,userAnniv=annivDate,tableau=tabARemplir); 
+                //return est obbligatoire, ici on décrit la logique à produire                                             
+            }*/
+        }
+
+            // Ici j'ajoute une methode via le prototype, au cas où 
+            // cette fonctionnalité n'a pas été prévue lors de la creation de la classe 'newUser'
+        newUser.prototype.addMoiAuTableau=function(){
+            addLine(name=userName,userAnniv=annivDate,tableau=tabARemplir);
+        }
+ 
+
+
+    </script>
+</body>
+</html>

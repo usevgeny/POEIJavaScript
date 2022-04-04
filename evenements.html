@@ -1,0 +1,41 @@
+<meta charset = "UTF-8">
+<script>
+   // evenement click
+
+    function traiterClick(e){
+    console.dir(e);
+    console.log('vous avez cliqué');
+
+    }
+
+    function traiterChangement(e){
+    console.dir(e);
+    var oDiv = document.getElementById('res');
+    oDiv.innerHTML = "Qch a changé";
+
+    
+    }
+
+// interception propagement de l'evenement
+   function traiterClickDiv(e){
+        console.log(e)
+    };
+
+</script>
+
+<body>
+<br>
+<input type="button" name="btn>" value="clicker" onclick="traiterClick(event)">
+
+Prenom:
+<input type="texte" name="prenom" onchange="traiterChangement(event)">
+    <br>
+
+    <div id="res"></div>
+
+
+
+    <div id="aurte" onclick="traiterClickDiv(event)">
+    <input type="button" value = "cliquez moi " onlicke>
+</div>
+</body>

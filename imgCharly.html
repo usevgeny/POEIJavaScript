@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+
+
+    </head>
+
+    <body>
+
+        <br><br><br>
+
+        <label for="tailleImage">Choisir une taille</label>
+
+        <select name="selectTaille" id="tailleImage">
+
+            <option value="">--Choisissez une option--</option>
+
+            <option value="0.5">50%</option>
+
+            <option value="1">100%</option>
+
+            <option value="1.5">150%</option>
+
+            <option value="2">200%</option>
+
+        </select>
+
+        <br><br><br><br><br>
+
+        <img id="image1" src="../htmlstage/imgs/chambre3.jpg" width="300">
+
+    </body>
+
+
+
+    <script>
+
+var taille = document.getElementById('tailleImage');var image = document.getElementById('image1');
+// alert(taille.value);
+taille.addEventListener("change",function(){ //Taille de l'image avec width   
+ image.width *= taille.value;
+  image.style.border = "5px solid red"; 
+  image.title = "jolie image de la tour effeil" })
+
+
+        
+        
+        </script>
+
+</html>
+

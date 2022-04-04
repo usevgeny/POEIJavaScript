@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+
+    
+</head>
+<body><h2>OPTION 1: attraper l'attribut "src" de l'image à partir l'élémént meme  </h2>
+    <table>
+        <tr>
+            <td><img src="../htmlstage/imgs/chambre1.jpg" width="110px" ></td>
+            <td><img src="../htmlstage/imgs/chambre2.jpg" width="110px" ></td>
+        </tr>
+        <tr>
+            <td><img src="../htmlstage/imgs/chambre3.jpg" width="110px"></td>
+            <td><img src="../htmlstage/imgs/chambre4.jpg" width="110px"></td>
+            
+          <!--  <td><img src="../htmlstage/imgs/chambre4.jpg" width="110px" onclick="openLargerWindow(this)"></td> -->
+        </tr>
+    </table>
+<h2>OPTION 2: attraper l'attribut "src" de l'image à partir des details de l'event  </h2>
+    <table>
+        <tr>
+            <td><img src="../htmlstage/imgs/chambre1.jpg" width="110px" onclick="openLargerWindow2(event)"></td>
+            <td><img src="../htmlstage/imgs/chambre2.jpg" width="110px" onclick="openLargerWindow2(event)"></td>
+        </tr>
+        <tr>
+            <td><img src="../htmlstage/imgs/chambre3.jpg" width="110px" onclick="openLargerWindow2(event)"></td>
+            <td><img src="../htmlstage/imgs/chambre4.jpg" width="110px" onclick="openLargerWindow2(event)"></td>
+        </tr>
+    </table>
+
+    <script>
+        var imgs = document.querySelectorAll("img");
+       imgs.forEach (item=>item.addEventListener("click", function(){
+           console.log("event detected");
+          openLargerWindow(item);
+       }))
+   // OPTION attraper l'attribut "src" de l'image à partir de l'element meme 
+   function openLargerWindow(img){
+           console.log(img);
+           wPopup1=window.open();
+           wPopup1.document.write(img.src+"<br> Ici on va mettre l'image<br><img src=\""+img.src+"\">");
+
+   }
+
+   // OPTION2 attraper l'attribut "src" de l'image à partir des details de l'event
+
+   function openLargerWindow2(event){
+      
+      // COMPRENDRE COMMENT ON PEUT ATTRAPER LE SRC DE L'IMAGE
+       console.log(event);
+       wPopup2=window.open();
+       wPopup2.document.write(event.path[0].src+"<br> Ici on va mettre l'image<br><img src=\""+event.path[0].src+"\">");
+   
+      
+   }
+</script>
+
+</body>
+
+
+</html>

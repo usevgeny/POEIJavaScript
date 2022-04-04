@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./04_04_2022.js"></script>
+    <title>Document</title>
+
+    <style>
+
+.centrage{
+    
+    margin:100px auto;
+
+}
+
+.content{
+
+    width:70%;
+    background-color:gainsboro;
+}
+    </style>
+</head>
+<body>
+    <H2 class="centrage">Exercice9</H2><br>
+    1- Les boutons radio ont le même name mais des valeurs différentes.<br>
+2- Le menu déroulant : le texte de chaque option est différent de sa valeur.<br>
+3- La liste déroulante multiple : le texte de chaque option est différent de sa valeur.<br>
+Question : récupérer les choix de l’internaute et affichez les dans un label en dessous du formulaire.<br>
+    <div class="centrage content" >
+
+       
+		<form name="contact" id="concact" >
+			
+			<table>
+				
+			
+				<tr>
+					<td>Sexe:</td>
+
+					<td><input type="radio" name="gender" value="Homme" id="Homme">Homme
+						
+					<input type="radio" name="gender" value="Femme" id="Femme">Femme
+
+					<input type="radio" name="gender" value="Transgenre" id="Transgenre">Transgenre
+
+					</td>
+				</tr>				
+
+                
+
+				<tr>
+					<td>Fruits:</td>
+					<td><select name="fruits" list="fruits" id="menuDeroulant">
+						
+						<option value="Poire">Poire</option>
+						<option value="Cerise">Cerise</option>
+						<option value="Ananas">Ananas</option>
+						<option value="Banane">Banane</option>
+                        </select></td>
+				</tr>				
+			
+
+
+
+
+				<tr>
+					<td>Liste déroulante multiple:</td>
+
+					<td>	<select name="listeMultiple"size="3" multiple id="listeMultiple">
+						<option  value="Premier" >Premier</option>
+						<option value="Second" >Second</option>
+						<option value="Troisième" >Troisième</option>
+						<option  value="Quatrième" >Quatrième</option>
+						</select>
+		
+					</td>
+				</tr>				
+
+
+				
+				<tr>
+					<td><input type="button" name="send" value="soumettre" id="soumettre" >
+
+			
+					</td>
+					<td><input type="reset" name="del" value="effacer" >
+					
+
+				</tr>
+                <tr>
+                    <td>RESULTAT: </td>
+                    <td> <span id="spanResultat"></span></td>
+                </tr>
+			</table>
+
+		</form>
+	</div>
+ 
+
+
+</body>
+</html>

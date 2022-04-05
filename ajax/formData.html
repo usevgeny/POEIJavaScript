@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récup du contenu d'un fichier TXT</title>
+</head>
+<body>
+    <h1>Formulaire avec FormData</h1>
+    <form method="POST" action="" id="myform">
+        <input type="text" id="titre" name="titre" value="Candide"><br>
+        <input type="text" id="auteur" name="auteur" value="Voltaire"><br>
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <script>  
+        //window.addEventListener("load", function(){
+        document.addEventListener("DOMContentLoaded", function(){
+
+            // Fonction pour envoyer les data
+            function sendData(){
+                xhr = new XMLHttpRequest();
+
+                // Créer un objet FormData
+                var FD = new FormData(form);
+                
+                xhr.addEventListener('readystatechange', function(){
+                    // A t-on la réponse ?
+                    if(this.readyState == 4 && this.status == 200){
+                        alert(this.responseText);
+                    }
+                });
+
+                // Préparer la requête
+                xhr.open("POST", "demo4.php", true);
+
+                // Envoyer la requête
+                xhr.send(FD);
+            }
+
+            // Votre formulaire
+            var form = document.getElementById("myform");
+
+            // Envoi du formulaire
+            form.addEventListener("submit", function(e){
+                e.preventDefault();
+
+                sendData();
+            })
+        });
+
+
+        
+        
+    </script>
+</body>
+</html>

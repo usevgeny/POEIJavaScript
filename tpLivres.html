@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livres</title>
+
+    <!--STYLE INTEGRE-->
+    <style>
+    
+        .centrage{
+            margin:100px auto;
+        }
+    
+        .content{
+    
+            width:70%;
+            background-color:gainsboro;
+        }
+    
+        .demoDiv{
+        
+        display: flex;
+        flex-direction: column;
+        background-color:gainsboro;
+        box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        z-index: 1;
+        overflow: hidden;
+        color:black;
+    
+        width: 750px;
+        height: 500px;
+        text-align: center;
+        z-index: 1000;
+    
+        }
+    
+        table.demoTab{
+            width:80%;
+            margin:0 auto;
+        }
+    
+        table.demoTab, table.demoTab tr, table.demoTab th, table.demoTab td{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        
+        table.demoTab tr:nth-child(odd){
+            background-color:gray;
+            color:white;
+        }
+    
+    
+            
+    </style>
+    <!--FIN STYLE INTEGRE-->
+
+</head>
+<body>
+
+     
+	<div class="centrage content demoDiv">	
+        <!--CREATION DE LA FORME-->
+		<div>
+            <form name="utilisateurs" id="AddUser" >
+                
+                <table>
+                    <tr>
+                        
+                        <td>
+                            Auteur:
+                        </td>
+
+                        <td>
+                            <input type="text" name="nom" id="tacheTitle">
+                        </td>
+                    </tr>		
+                    <tr>
+                        
+                        <td>
+                            L'intitulé:
+                        </td>
+
+                        <td>
+                            <input type="text" name="nom" id="tacheTitle">
+                        </td>
+                    </tr>		
+                    <tr>
+                        
+                        <td>
+                            Editeur:
+                        </td>
+
+                        <td>
+                            <input type="text" name="nom" id="tacheTitle">
+                        </td>
+                    </tr>		
+                    <tr>
+                        <td>
+                            <input type="button" name="addTacheBtn" value="Ajouter" id="addLivres" >
+                        </td>
+                        <td>
+                            <input type="button" name="addTacheBtn" value="Montrer" id="ontrerLivres" >
+                        </td>
+                    </tr>	
+                    </table>
+
+            </form>
+        </div>
+    
+        <div>
+            <br>
+            <h2>Voici les livres en disponibilité dans le magasin</h2>
+    <!--FIN CREATION DE LA FORME-->
+
+
+        <!--CREATION DU TABLEAU DYNAMIQUE-->
+        <!--je vais juste l'initialiser et lui donner un Id-->
+        <div id="infoDiv"></div>
+        <table id="tabAremplir_tab" class="demoTab">
+            <tr>
+                <th>
+                    L'Auteur:
+                </th>
+                <th>
+                    Le titre du livre:
+                </th>
+                <th>
+                    L'editeur':
+                </th>
+                <th>
+                    Photo:
+                </th>
+            </tr>
+        </table>
+        </div>
+        <!--FIN CREATION DU TABLEAU DYNAMIQUE-->
+
+    </div>
+
+
+    <script>  
+        var tableARemplir=document.querySelector("#tabAremplir_tab");
+        //attraper le bouton "Add Livre"
+        // Créer l'objet XHR
+        var xhr = new XMLHttpRequest();
+        //alert(xhr);
+
+        // Création d'un paramètre
+        //obj = {"table":"produits", "limit":3}
+        //txtparam = JSON.stringify(obj);
+        
+        // Event onreadystatechange
+        xhr.onreadystatechange = function(){
+        //xhr.onload = function(){    
+            // A t-on la réponse ?
+            if(this.readyState == 4 && this.status == 200){
+                //alert(this.responseText);
+                //console.log(this.responseText);
+                // Insérer dans la DIV
+               // try {
+                    myObj = JSON.parse(this.responseText);
+                    myObj.forEach(element=>addLine(livreTitre=element.title,livreAuteur=element.auteur,livreEditeur=element.editeur,livrePhoto=element.lienPhoto,livreTableau=tableARemplir));
+                //} catch (error) {
+               //     document.getElementById("infoDiv").innerHTML = this.responseText;
+               // }
+                
+            }
+        }
+        /*
+        xhr.addEventListener('load', function(){
+            // A t-on la réponse ?
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById('demo').innerHTML = this.responseText;
+            }
+        });*/
+
+        // Préparer la requête
+        xhr.open("GET", "./php/livres.php", true);
+
+        // Envoyer la requête
+        xhr.send();
+
+        //AddLivre
+        function addLine(livreTitre,livreAuteur,livreEditeur,livrePhoto,livreTableau){
+                this.livreTitre = livreTitre;
+                this.livreAuteur = livreAuteur;
+                this.livreEditeur = livreEditeur;
+                this.livrePhoto = livrePhoto;
+                this.tableau = livreTableau;
+
+                // Ici on crée une ligne pour le name
+                var rowLivre = document.createElement("tr");
+                
+
+                    //et là c'est parti pour les cellules:
+                    var cellTitre = document.createElement("td");
+                    // et va creer le texte pour ensuite le mettre dans la cellule:
+                    var cellTitreText = document.createTextNode(this.livreTitre);
+                    // d'abord je mets du texte dans la cellule
+                    cellTitre.appendChild(cellTitreText);
+                    // ensuite je mets la cellule dans le row
+                    rowLivre.appendChild(cellTitre);
+
+
+                    //et là c'est parti pour les cellules:
+                    var cellAuteur = document.createElement("td");
+                    // et va creer le texte pour ensuite le mettre dans la cellule:
+                    var cellAuteurTexte = document.createTextNode(this.livreAuteur);
+                    // d'abord je mets du texte dans la cellule
+                    cellAuteur.appendChild(cellAuteurTexte);
+                    // ensuite je mets la cellule dans le row
+                    rowLivre.appendChild(cellAuteur);
+
+
+                    //et là c'est parti pour les cellules:
+                    var cellEditeur = document.createElement("td");
+                    // et va creer le texte pour ensuite le mettre dans la cellule:
+                    var cellEditeurTexte = document.createTextNode(this.livreEditeur);
+                    // d'abord je mets du texte dans la cellule
+                    cellEditeur.appendChild(cellEditeurTexte);
+                    // ensuite je mets la cellule dans le row
+                    rowLivre.appendChild(cellEditeur);
+
+
+
+                     //et là c'est parti pour les cellules:
+                     var cellPhoto = document.createElement("td");
+                    // et va creer le texte pour ensuite le mettre dans la cellule:
+                    var cellPhotoTexte = document.createTextNode(this.livrePhoto);
+                    // d'abord je mets du texte dans la cellule
+                    cellPhoto.appendChild(cellPhotoTexte);
+                    // ensuite je mets la cellule dans le row
+                    rowLivre.appendChild(cellPhoto);
+
+
+
+                // et maintenant la ligne contient les cellule avec le nom et avec la date,
+                // on peut la mettre dans le tableau
+                // donc on procède de plus petit vers le plus grand (de la cellule, vers le row, et enfin vers le tableau)
+
+                tableau.appendChild(rowLivre);
+                
+                // la logique est complète on peut integrer cette fonction dans l'action de la button
+            }
+        
+
+
+        
+    </script>
+    
+</body>
+</html>

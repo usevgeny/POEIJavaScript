@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Récup du contenu d'un fichier TXT</title>
 </head>
@@ -13,21 +12,19 @@
     <script>  
         // Créer l'objet XHR
         var xhr = new XMLHttpRequest();
-        //alert(xhr);
 
         // Création d'un paramètre
         obj = {"table":"produits", "limit":3}
         txtparam = JSON.stringify(obj);
         
         // Event onreadystatechange
-        xhr.onreadystatechange = function(){
-        //xhr.onload = function(){    
+        xhr.onreadystatechange = function(){  
             // A t-on la réponse ?
             if(this.readyState == 4 && this.status == 200){
-                //alert(this.responseText);
+                alert(this.responseText);
 
                 // Insérer dans la DIV
-                document.getElementById('demo').innerHTML = this.responseText;
+                //document.getElementById('demo').innerHTML = this.responseText;
             }
         }
         /*
@@ -39,10 +36,13 @@
         });*/
 
         // Préparer la requête
-        xhr.open("GET", "demo2.php?p=" + txtparam, true);
+        xhr.open("POST", "demo3.php", true);
 
+        // Indiquer le header
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
         // Envoyer la requête
-        xhr.send();
+        xhr.send("p=" + txtparam);
     </script>
 </body>
 </html>

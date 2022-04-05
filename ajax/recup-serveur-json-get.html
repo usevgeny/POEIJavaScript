@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récup du contenu d'un fichier TXT</title>
+</head>
+<body>
+    <h1>Contenu du fichier</h1>
+    <div id="demo"></div>
+
+    <script>  
+        // Créer l'objet XHR
+        var xhr = new XMLHttpRequest();
+        //alert(xhr);
+
+        // Event onreadystatechange
+        xhr.onreadystatechange = function(){
+        //xhr.onload = function(){    
+            // A t-on la réponse ?
+            if(this.readyState == 4 && this.status == 200){
+                //alert(this.responseText);
+
+                // Transformer le texte JSON reçu en objet JS
+                myObj = JSON.parse(this.responseText);
+                //alert(myObj.name);
+
+                // Insérer dans la DIV
+                document.getElementById('demo').innerHTML = myObj.name + " a " + myObj.age + " ans.";
+            }
+        }
+        /*
+        xhr.addEventListener('load', function(){
+            // A t-on la réponse ?
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById('demo').innerHTML = this.responseText;
+            }
+        });*/
+
+        // Préparer la requête
+        xhr.open("GET", "demo1.php", true);
+
+        // Envoyer la requête
+        xhr.send();
+    </script>
+</body>
+</html>

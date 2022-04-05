@@ -75,22 +75,22 @@
                         </td>
 
                         <td>
-                            <input type="text" name="nom" id="userName">
+                            <input type="text" name="nom" id="tacheTitle">
                         </td>
                     </tr>		
                     <tr>
                         
                         <td>
-                            Anniversaire:
+                            dateFinale:
                         </td>
 
                         <td>
-                            <input type="date" name="anniversaire" id = "anniversaire">
+                            <input type="date" name="dateFinale" id = "dateFinale">
                         </td>
                     </tr>	
                     <tr>
                         <td>
-                            <input type="button" name="addUserBtn" value="Ajouter" id="addUserBtn" >
+                            <input type="button" name="addTacheBtn" value="Ajouter" id="addTacheBtn" >
                         </td>
                     </tr>	
                     </table>
@@ -109,10 +109,10 @@
         <table id="tabAremplir" class="demoTab">
             <tr>
                 <th>
-                    Name:
+                    L'intitulé de la tache:
                 </th>
                 <th>
-                    Date:
+                    Faire avant:
                 </th>
             </tr>
         </table>
@@ -126,62 +126,62 @@
     <script>
 
         // 1. definir les variables et attraper les éléménts du document (bouton, tableau)
-        var userName;
-        var annivDate;
-        var addUserBtn = document.querySelector("#addUserBtn");
+        var tacheTitle;
+        var toDoDate;
+        var addTacheBtn = document.querySelector("#addTacheBtn");
         var tabARemplir = document.querySelector("#tabAremplir");
 
 
         // 2. rattacher une action au bouton
         // 2.1. recuperer les donnees du formulare
-        addUserBtn.addEventListener("click", function(){
-            userName = document.querySelector("#userName").value;
-            annivDate = document.querySelector("#anniversaire").value;
+        addTacheBtn.addEventListener("click", function(){
+            tacheTitle = document.querySelector("#tacheTitle").value;
+            toDoDate = document.querySelector("#dateFinale").value;
             //et là on va inserrer une ligne avec les données récupéréss soit directement en appelant une fonction
-            addLine(name=userName,userAnniv=annivDate,tableau=tabARemplir);
+           // addLine(tacheTitle=tacheTitle,dateFinale=toDoDate,tableau=tabARemplir);
 
-            // si on veut utiliser l'objet newUser (décrit en bas du script) et une de ses méthodes:
-           // UserEntity = new newUser(uName=userName, annivDate=annivDate);
-            //UserEntity.addMoiAuTableau();
+            // si on veut utiliser l'objet newTache (décrit en bas du script) et une de ses méthodes:
+            TacheEntity = new newTache(tacheName=tacheTitle, toDoDate=toDoDate);
+            TacheEntity.addMoiAuTableau();
         });
 
 
         // 2.2. inserer un ligne avec les donnees dans le tableau
             // 2.2.1. on va d'abord décrir la logique d'insertion des lignes
-            function addLine(name,userAnniv,tableau){
-                this.name = name;
-                this.userAnniv = userAnniv;
+            function addLine(tacheTitle,dateFinale,tableau){
+                this.tacheTitle = tacheTitle;
+                this.dateFinale = dateFinale;
                 this.tableau = tableau;
 
                 // Ici on crée une ligne pour le name
-                var rowUser = document.createElement("tr");
+                var rowTache = document.createElement("tr");
                 
 
                     //et là c'est parti pour les cellules:
                     var cellName = document.createElement("td");
                     // et va creer le texte pour ensuite le mettre dans la cellule:
-                    var cellNameText = document.createTextNode(this.name);
+                    var cellNameText = document.createTextNode(this.tacheTitle);
                     // d'abord je mets du texte dans la cellule
                     cellName.appendChild(cellNameText);
                     // ensuite je mets la cellule dans le row
-                    rowUser.appendChild(cellName);
+                    rowTache.appendChild(cellName);
 
-                    // Ici on crée un cellule pour la userAnniv
-                    var cellUserAnniv  = document.createElement("td");
+                    // Ici on crée un cellule pour la dateFinale
+                    var celldateFinale  = document.createElement("td");
                     // et va creer le texte pour ensuite le mettre dans la cellule:
-                    var cellUserAnnivText = document.createTextNode(this.userAnniv);
+                    var celldateFinaleText = document.createTextNode(this.dateFinale);
                     // d'abord je mets du texte dans la cellule
-                    cellUserAnniv.appendChild(cellUserAnnivText);
+                    celldateFinale.appendChild(celldateFinaleText);
                 
 
                 // c'est bon avec les cellules, on va les mettre dans le row:
-                rowUser.appendChild(cellUserAnniv);
+                rowTache.appendChild(celldateFinale);
 
                 // et maintenant la ligne contient les cellule avec le nom et avec la date,
                 // on peut la mettre dans le tableau
                 // donc on procède de plus petit vers le plus grand (de la cellule, vers le row, et enfin vers le tableau)
 
-                tableau.appendChild(rowUser);
+                tableau.appendChild(rowTache);
                 
                 // la logique est complète on peut integrer cette fonction dans l'action de la button
             }
@@ -190,21 +190,27 @@
 
         // aussi si on veut va creer un objet User pour ensuite appeler un de ses methodes;
         // notamment une methode addMoiAuTableau pour l'ajouter au tableau;
-        //var UserEntity;
-        function newUser (uName, annivDate){
-            this.uName = uName;
-            this.annivDate = annivDate;
+        
+
+        // CREATION DE LA CLASSE NEW TACHE
+        function newTache (tacheName, toDoDate){
+            this.tacheName = tacheName;
+            this.toDoDate = toDoDate;
            /* this.addMoiAuTableau =function(){
-                return addLine(name=userName,userAnniv=annivDate,tableau=tabARemplir); 
+                return addLine(tacheName=tacheName,dateFinale=toDoDate,tableau=tabARemplir); 
                 //return est obbligatoire, ici on décrit la logique à produire                                             
             }*/
         }
+        // FIN CREATION DE LA CLASSE NEWTACHE
 
+
+        // APPEL AU PROTOTYPE
             // Ici j'ajoute une methode via le prototype, au cas où 
-            // cette fonctionnalité n'a pas été prévue lors de la creation de la classe 'newUser'
-        newUser.prototype.addMoiAuTableau=function(){
-            addLine(name=userName,userAnniv=annivDate,tableau=tabARemplir);
+            // cette fonctionnalité n'a pas été prévue lors de la creation de la classe 'newTache'
+         newTache.prototype.addMoiAuTableau=function(){
+            addLine(tacheName=tacheName,dateFinale=toDoDate,tableau=tabARemplir);
         }
+        // FIN APPEL AU PROTOTYPE
  
 
 
